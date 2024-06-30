@@ -1,0 +1,175 @@
+!SESSION 2023-03-28 17:42:10.384 -----------------------------------------------
+eclipse.buildId=4.25.0.I20220831-1800
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/abdirahmanabdirahman/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/abdirahmanabdirahman/.eclipse_keyring
+
+!ENTRY org.eclipse.linuxtools.docker.integration.tests 4 0 2023-03-28 17:42:11.864
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.integration.tests [972]
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.preferences
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.preferences; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+       org.eclipse.linuxtools.docker.reddeer [973]
+         Unresolved requirement: Import-Package: org.eclipse.linuxtools.internal.docker.ui.testutils
+           -> Export-Package: org.eclipse.linuxtools.internal.docker.ui.testutils; bundle-symbolic-name="org.eclipse.linuxtools.docker.ui.tests"; bundle-version="2.2.0.202209062047"; version="0.0.0"; x-friends:="org.eclipse.linuxtools.docker.reddeer,org.eclipse.linuxtools.docker.reddeer.ui,org.eclipse.linuxtools.docker.integration.tests"
+              org.eclipse.linuxtools.docker.ui.tests [974]
+                No resolution report for the bundle.  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.ui
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.ui; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.perspective
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.perspective; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.core.ui.wizards
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.core.ui.wizards; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.ui.resources
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.ui.resources; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Require-Bundle: org.eclipse.linuxtools.docker.reddeer; bundle-version="2.1.0"
+    -> Bundle-SymbolicName: org.eclipse.linuxtools.docker.reddeer; bundle-version="2.2.0.202209062047"; singleton:="true"
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.condition
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.condition; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.docker.reddeer.utils
+    -> Export-Package: org.eclipse.linuxtools.docker.reddeer.utils; bundle-symbolic-name="org.eclipse.linuxtools.docker.reddeer"; bundle-version="2.2.0.202209062047"; version="0.0.0"
+  Unresolved requirement: Require-Bundle: org.eclipse.linuxtools.docker.ui.tests
+    -> Bundle-SymbolicName: org.eclipse.linuxtools.docker.ui.tests; bundle-version="2.2.0.202209062047"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.linuxtools.docker.integration.tests [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.202209062047"; osgi.identity="org.eclipse.linuxtools.docker.integration.tests"; singleton:="true"] because it is exposed to package 'org.hamcrest' from resources org.hamcrest [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v20210711-0821"; osgi.identity="org.hamcrest"] and org.hamcrest.core [osgi.identity; type="osgi.bundle"; version:Version="1.3.0.v20180420-1519"; osgi.identity="org.hamcrest.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.linuxtools.docker.integration.tests [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.202209062047"; osgi.identity="org.eclipse.linuxtools.docker.integration.tests"; singleton:="true"]
+    import: (osgi.wiring.package=org.hamcrest)
+     |
+    export: osgi.wiring.package: org.hamcrest
+  org.hamcrest [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v20210711-0821"; osgi.identity="org.hamcrest"]
+
+Chain 2:
+  org.eclipse.linuxtools.docker.integration.tests [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.202209062047"; osgi.identity="org.eclipse.linuxtools.docker.integration.tests"; singleton:="true"]
+    require: (osgi.wiring.bundle=org.junit)
+     |
+    provide: osgi.wiring.bundle: org.junit
+  org.hamcrest.core [osgi.identity; type="osgi.bundle"; version:Version="1.3.0.v20180420-1519"; osgi.identity="org.hamcrest.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1852)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1845)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1786)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1750)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1672)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.linuxtools.docker.reddeer 4 0 2023-03-28 17:42:11.907
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.reddeer [973]
+  Unresolved requirement: Import-Package: org.eclipse.linuxtools.internal.docker.ui.testutils
+    -> Export-Package: org.eclipse.linuxtools.internal.docker.ui.testutils; bundle-symbolic-name="org.eclipse.linuxtools.docker.ui.tests"; bundle-version="2.2.0.202209062047"; version="0.0.0"; x-friends:="org.eclipse.linuxtools.docker.reddeer,org.eclipse.linuxtools.docker.reddeer.ui,org.eclipse.linuxtools.docker.integration.tests"
+       org.eclipse.linuxtools.docker.ui.tests [974]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.linuxtools.docker.ui.tests [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.202209062047"; osgi.identity="org.eclipse.linuxtools.docker.ui.tests"; singleton:="true"] because it is exposed to package 'org.hamcrest' from resources org.hamcrest.core [osgi.identity; type="osgi.bundle"; version:Version="1.3.0.v20180420-1519"; osgi.identity="org.hamcrest.core"] and org.hamcrest [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v20210711-0821"; osgi.identity="org.hamcrest"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.linuxtools.docker.ui.tests [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.202209062047"; osgi.identity="org.eclipse.linuxtools.docker.ui.tests"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.junit)(bundle-version>=4.12.0))
+     |
+    provide: osgi.wiring.bundle: org.junit
+  org.hamcrest.core [osgi.identity; type="osgi.bundle"; version:Version="1.3.0.v20180420-1519"; osgi.identity="org.hamcrest.core"]
+
+Chain 2:
+  org.eclipse.linuxtools.docker.ui.tests [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.202209062047"; osgi.identity="org.eclipse.linuxtools.docker.ui.tests"; singleton:="true"]
+    require: (osgi.wiring.bundle=assertj-core)
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="3.23.1"; osgi.wiring.bundle="assertj-core"
+  assertj-core [osgi.identity; type="osgi.bundle"; version:Version="3.23.1"; osgi.identity="assertj-core"]
+    import: (&(osgi.wiring.package=org.hamcrest)(&(version>=2.2.0)(!(version>=3.0.0))))
+     |
+    export: osgi.wiring.package: org.hamcrest
+  org.hamcrest [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v20210711-0821"; osgi.identity="org.hamcrest"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1852)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1845)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1786)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1750)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1672)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.jface 2 0 2023-03-28 17:42:37.960
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-28 17:42:37.960
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.tools.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.rap.tools.launch.RAPLaunchShortcut.run"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.wst.server.launchShortcut.run"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-28 17:42:37.960
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-28 17:42:37.960
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-28 17:42:37.960
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.tools.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.rap.tools.launch.RAPLaunchShortcut.debug"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.wst.server.launchShortcut.debug"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
